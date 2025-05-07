@@ -18,6 +18,12 @@
 class_name Command
 extends RefCounted
 
+## the actor that will execute the command
+var _actor: Node
+
+
+func _init(actor: Node):
+	_actor = actor
 
 ## Executes the command's primary action.
 ##
