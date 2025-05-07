@@ -1,5 +1,3 @@
-class_name Command
-extends RefCounted
 ## Abstract base class for all command pattern implementations.
 ##
 ## The Command pattern encapsulates actions as objects, allowing you to:
@@ -16,9 +14,9 @@ extends RefCounted
 ##     var command = MoveCommand.new(player, Vector2.RIGHT * 32)
 ##     command.execute()  # Moves player right
 ##     command.undo()     # Returns player to original position
-##
-## @tutorial(Command Pattern Overview): https://gameprogrammingpatterns.com/command.html
-## @tutorial(Godot Design Patterns): https://www.gdquest.com/docs/guidelines/best-practices/godot-gdscript/design-patterns/
+@icon("../")
+class_name Command
+extends RefCounted
 
 
 ## Executes the command's primary action.
