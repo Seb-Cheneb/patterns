@@ -1,48 +1,28 @@
-## Abstract base class for all command pattern implementations.
+## Base class for command pattern implementations that encapsulate actions as objects.
 ##
-## The Command pattern encapsulates actions as objects, allowing you to:
-## - Parameterize objects with different actions
-## - Queue commands for deferred execution
-## - Implement undo/redo functionality
-## - Support logging and transactional operations
+## Commands store both the action and its context, enabling:
+## - Decoupled input handling
+## - Undo/redo systems
+## - Action queuing and replay
+## - Transactional operations
 ##
-## Inherit from this class to create concrete command implementations.
-## Override [method execute] to define the command's action and [method undo]
-## to define how to revert it.
-##
-## @example:
-##     var command = MoveCommand.new(player, Vector2.RIGHT * 32)
-##     command.execute()  # Moves player right
-##     command.undo()     # Returns player to original position
+## @param actor: The node that will execute this command
 @icon("../pattern.png")
 class_name Command
 extends RefCounted
 
-## the actor that will execute the command
+## Reference to the node that will perform the action
 var _actor: Node
-
 
 func _init(actor: Node):
 	_actor = actor
 
-## Executes the command's primary action.
-##
-## Override this method in derived classes to implement the command's behavior.
-## This should contain all logic needed to perform the command.
-##
-## @example:
-##     func execute() -> void:
-##         target.position += movement
+## Execute the command's primary action.
+## @warning: Must be overridden in derived classes
 func execute() -> void:
 	push_error("Command.execute() not implemented in derived class")
 
-
-## Reverts the changes made by the execute() method.
-##
-## Override this method in derived classes to implement undo functionality.
-## Should perfectly reverse the effects of execute().
-##
-## @note: For proper undo functionality, commands should store
-##        enough state to return to the pre-execution condition.
+## Reverse the command's effects.
+## @note: Store necessary state before execute() for proper undo
 func undo() -> void:
 	push_error("Command.undo() not implemented in derived class")
