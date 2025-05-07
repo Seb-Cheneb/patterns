@@ -14,7 +14,7 @@
 ##     var command = MoveCommand.new(player, Vector2.RIGHT * 32)
 ##     command.execute()  # Moves player right
 ##     command.undo()     # Returns player to original position
-@icon("../")
+@icon("../pattern.png")
 class_name Command
 extends RefCounted
 
@@ -38,9 +38,5 @@ func execute() -> void:
 ##
 ## @note: For proper undo functionality, commands should store
 ##        enough state to return to the pre-execution condition.
-##
-## @example:
-##     func undo() -> void:
-##         target.position = previous_position
 func undo() -> void:
 	push_error("Command.undo() not implemented in derived class")
