@@ -1,11 +1,9 @@
-class_name State
-extends Node
-
+@icon("../pattern.png")
+class_name State extends Node
 
 signal transition 
-
-# stores a reference to the player that this state belongs to
 static var player: Player
+
 
 func _ready() -> void:
 	printerr("method not implemented")

@@ -8,14 +8,12 @@
 ##
 ## @param actor: The node that will execute this command
 @icon("../pattern.png")
-class_name Command
-extends RefCounted
+class_name Command extends RefCounted
 
-## Reference to the node that will perform the action
 var _actor: Node
-
 func _init(actor: Node):
 	_actor = actor
+
 
 ## Execute the command's primary action.
 ## @warning: Must be overridden in derived classes

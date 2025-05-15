@@ -1,2 +1,2 @@
-class_name StateController
-extends Node
+@icon("../pattern.png")
+class_name StateController extends Node
