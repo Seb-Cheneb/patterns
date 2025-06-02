@@ -11,6 +11,8 @@
 class_name Command extends RefCounted
 
 var _actor: Node
+
+
 func _init(actor: Node):
 	_actor = actor
 
