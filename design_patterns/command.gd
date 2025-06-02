@@ -10,7 +10,9 @@
 @icon("../pattern.png")
 class_name Command extends RefCounted
 
+
 var _actor: Node
+var _class_name = get_script().get_path().get_file().get_basename()
 
 
 func _init(actor: Node):
@@ -20,9 +22,10 @@ func _init(actor: Node):
 ## Execute the command's primary action.
 ## @warning: Must be overridden in derived classes
 func execute() -> void:
-	push_error("Command.execute() not implemented in derived class")
+	push_warning("%s :: execute -- method not implemented" % _class_name)
+
 
 ## Reverse the command's effects.
 ## @note: Store necessary state before execute() for proper undo
 func undo() -> void:
-	push_error("Command.undo() not implemented in derived class")
+	push_warning("%s :: undo -- method not implemented" % _class_name)
