@@ -8,7 +8,7 @@
 ##
 ## @param actor: The node that will execute this command
 @icon("../pattern.png")
-class_name Command extends RefCounted
+class_name Command extends Node
 
 
 var _actor: Node
