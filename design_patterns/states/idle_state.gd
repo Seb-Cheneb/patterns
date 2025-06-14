@@ -8,7 +8,8 @@ extends State
 @export var animation_tree: AnimationTree
 @export var blendspace: String
 
-var direction: Vector3 = Vector3.ZERO # the direction the actor is looking at
+## the direction the actor is looking at
+var direction: Vector3 = Vector3.ZERO
 
 
 func enter() -> void:
