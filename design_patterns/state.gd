@@ -1,35 +1,34 @@
 @icon("../pattern.png")
 class_name State extends Node
 
-signal transition 
 
-@export var player: Player
+signal change_state_signal
 
-var owner_class = get_script().get_path().get_file().get_basename()
+@export var actor: Node3D
 
-
-func _ready() -> void:
-	push_warning("%s :: _ready -- method not implemented" % owner_class)
+@export_category("Debugging")
+@export var is_debugging: bool = false
 
 
 func enter() -> void:
-	push_warning("%s :: enter -- method not implemented" % owner_class)
+	Logger.warn(is_debugging, self, "method not implemented")
 
 
 func exit() -> void:
-	push_warning("%s :: exit -- method not implemented" % owner_class)
-	
-	
-func process(_delta : float) -> State:
-	push_warning("%s :: process -- method not implemented" % owner_class)
-	return null
+	Logger.warn(is_debugging, self, "method not implemented")
 
 
-func physics_process(_delta : float) -> State:
-	push_warning("%s :: physics_process -- method not implemented" % owner_class)
-	return null
+func on_ready() -> void:
+	Logger.warn(is_debugging, self, "method not implemented")
+
+	
+func on_process(delta : float) -> void:
+	Logger.warn(is_debugging, self, "method not implemented")
+
+
+func on_physics_process(delta : float) -> void:
+	Logger.warn(is_debugging, self, "method not implemented")
 	
 
-func unhandled_input(event: InputEvent) -> State:
-	push_warning("%s :: unhandled_input -- method not implemented" % owner_class)
-	return null
+func on_unhandled_input(event: InputEvent) -> void:
+	Logger.warn(is_debugging, self, "method not implemented")
