@@ -1,34 +1,29 @@
 @icon("../pattern.png")
-class_name State extends Node
+class_name State 
+extends Node
 
 
 signal change_state_signal
 
-@export var actor: Node3D
+@export 
+var actor: Node3D
 
 @export_category("Debugging")
-@export var is_debugging: bool = false
+@export 
+var is_debugging: bool = false
+
+func _ready() -> void:
+	# States start disabled - only the current state will be enabled
+	process_mode = Node.PROCESS_MODE_DISABLED
 
 
 func enter() -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
+	# Enable processing when entering the state
+	process_mode = Node.PROCESS_MODE_INHERIT
+	Logger.info(is_debugging, self, "entered state: " + name)
 
 
 func exit() -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
-
-
-func on_ready() -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
-
-	
-func on_process(delta : float) -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
-
-
-func on_physics_process(delta : float) -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
-	
-
-func on_unhandled_input(event: InputEvent) -> void:
-	Logger.warn(is_debugging, self, "method not implemented")
+	# Disable processing when exiting the state
+	process_mode = Node.PROCESS_MODE_DISABLED
+	Logger.info(is_debugging, self, "exited state: " + name)

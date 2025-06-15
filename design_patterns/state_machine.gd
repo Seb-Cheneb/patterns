@@ -1,5 +1,6 @@
 @icon("../pattern.png")
-class_name StateMachine extends Node
+class_name StateMachine 
+extends Node
 
 
 @export var initial_state: State
