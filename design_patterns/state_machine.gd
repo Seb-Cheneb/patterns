@@ -21,6 +21,7 @@ func _ready() -> void:
 		if child is State:
 			child.change_state_signal.connect(change_state)
 			states[child.name.to_lower()] = child
+			Logger.info(is_debugging, self, "added state \"" + child.name.to_lower() + "\" to state machine")
 	
 	if initial_state:
 		current_state = initial_state
