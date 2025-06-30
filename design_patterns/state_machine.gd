@@ -4,6 +4,7 @@ extends Node
 
 
 @export var initial_state: State
+
 @export_category("Debugging")
 @export var is_debugging: bool = false
 
