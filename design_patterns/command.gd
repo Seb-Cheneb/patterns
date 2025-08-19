@@ -10,6 +10,7 @@
 @icon("../pattern.png")
 class_name Command extends Node
 
+## test, remove me
 
 var _actor: Node
 var _class_name = get_script().get_path().get_file().get_basename()
