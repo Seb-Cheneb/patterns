@@ -3,7 +3,7 @@ class_name State
 extends Node
 
 
-signal change_state_signal
+signal change_state_signal(state_name: String)
 
 @export_category("Debugging")
 @export 
